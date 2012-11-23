@@ -76,6 +76,7 @@ namespace TouchBaseWPF
         }
         ~TouchBaseAPI()
         {
+            MousePort = true;
             DLL_TBApiUnregisterDataCallback(DataRaisedDelegate);
             DLL_TBApiClose();
             DLL_TBApiTerminate();
