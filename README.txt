@@ -1,13 +1,9 @@
 ﻿Touch-Base WPF Touch Helper Library
 Anthony Turner <mzxgiant at gmail dot com>
-This library was written for the MIMO UM-720S, please forgive the allusions to a touchscreen... while I haven't tested this on any other Touch-Base monitors,
- it only uses the Touch-Base API and MultiPoint SDK for all of its operations. If your application can deal with those requirements, give this a shot.
+This library was written for the MIMO UM-720S, please forgive the allusions to a touchscreen... while I haven't tested this on any other Touch-Base monitors, it only uses the Touch-Base API and MultiPoint SDK for all of its operations. If your application can deal with those requirements, give this a shot.
 
 
-This library is to fix the gap in Touch-Base UPDD drivers and Windows 7 that forces only the primary monitor to report touch events.
-It is also designed to allow the user to have "multiple" mouse cursors, such that the developer can isolate the touch input events from the rest of the OS.
-   (Note how some applications receive touch events but allow them to be promoted to click events, which can pull focus from the core monitor if you're
-    using the Touch-Base monitor for a dock/control application)
+This library is to fix the gap in Touch-Base UPDD drivers and Windows 7 that forces only the primary monitor to report touch events. It is also designed to allow the user to have "multiple" mouse cursors, such that the developer can isolate the touch input events from the rest of the OS. (Note how some applications receive touch events but allow them to be promoted to click events, which can pull focus from the core monitor if you're using the Touch-Base monitor for a dock/control application)
 
 
 Requirements:
@@ -15,9 +11,7 @@ Requirements:
 	- .NET Framework 4
 
 
-This library utilizes Microsoft's MultiPointSdk, which allows us to manually insert an input device into the input stack, and force its events to match
- the positional coordinates from the touch controller, coming directly off the API. The integration of the API here is very shallow; it's only sufficient
- to pull in touch coordinates and button states.
+This library utilizes Microsoft's MultiPointSdk, which allows us to manually insert an input device into the input stack, and force its events to match the positional coordinates from the touch controller, coming directly off the API. The integration of the API here is very shallow; it's only sufficient to pull in touch coordinates and button states.
 
 
 This package includes libraries from Microsoft and Touch-Base. These files are not mine; I hold no liability for them nor can I support them. These files are:
@@ -31,7 +25,8 @@ This package includes libraries from Microsoft and Touch-Base. These files are n
 
 Usage:
 	[In a C# codebehind from a Window]
-	var boundTouchDevice = new TouchBaseDevice(this, 0); // This will hook a Touch-Base input panel to the current window
+	var boundTouchDevice = new TouchBaseDevice(this, 0);
+	// This will hook a Touch-Base input panel to the current window
 
 
 Events:
@@ -45,5 +40,5 @@ Events:
 
 Methods:
 	+ Hook(Window targetWindow)
-		Run this method to hook the MultiPointSdk engine and the scaling handle
-		to the target window
+		Run this method to hook the MultiPointSdk engine and the scaling
+		handle to the target window
